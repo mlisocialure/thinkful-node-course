@@ -12,7 +12,7 @@ for (var d in diners){
     if(!diners.hasOwnProperty(d)) 
     {continue;}
     
-     entrees1_total +=  diners[d].price1; //total expense of entree1 for all diners  look up on how to access dictionaries
+     entrees1_total +=  diners[d].price1; //total expense of entree1 for all diners  
 
      diners[d].tax1 = diners[d].price1*0.082; // method for sales tax
 
