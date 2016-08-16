@@ -1,25 +1,32 @@
 var diners=[
-{'name':'adam', 'entree1':'ramen', 'price1':11.5, 'entree2': 'miso', 'price2' : 3},
+{name:'adam', entree1:'ramen', price1:11.5, entree2: 'miso', price2 : 3},
 
-{'name':'bobby', 'entree1': 'udon', 'price1':10.69, 'entree2': 'gyoza', 'price2' : 4.5},
+//{name:'bobby', entree1: 'udon', price1 :10.69, entree2: 'gyoza', price2 : 4.5},
 
-{'name':'charly', 'entree1': 'teriyaki chicken', 'price':12, 'entree2': 'miso', 'price2' : 3},
+//{name:'carly', entree1: 'teriyaki chicken', price1:12, entree2: 'miso', price2 : 3},
 ];
 
 var entrees1_total=0;
 for (var d in diners){
-     entrees1_total +=  diners[d].price1; //total expense of entree1 for all diners
+    
+    if(!diners.hasOwnProperty(d)) 
+    {continue;}
+    
+     entrees1_total +=  diners[d].price1; //total expense of entree1 for all diners  look up on how to access dictionaries
 
-     diners[d].tax1 = diners[d].price1* 0.082; // method for sales tax
+     diners[d].tax1 = diners[d].price1*0.082; // method for sales tax
 
      entrees1_total += diners[d].tax1; //total entree1 price including sales tax
      }
 
 var entrees2_total=0;
 for (var d in diners){
+    
+    if(!diners.hasOwnProperty(d)) continue;
+
     entrees2_total += diners[d].price2;
 
-    diners[d].tax2 = diners[d]* price2 * 0.082;
+    diners[d].tax2 = diners[d] * price2 * 0.082;
 
     entrees2_total += diners[d].tax2;
     }
