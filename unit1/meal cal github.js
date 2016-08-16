@@ -26,12 +26,12 @@ for (var d in diners){
 
     entrees2_total += diners[d].price2;
 
-    diners[d].tax2 = diners[d] * price2 * 0.082;
+    diners[d].tax2 = diners[d].price2 * 0.082;
 
     entrees2_total += diners[d].tax2;
     }
 
-var total = entree1_total + entree2_total;
+var total = entrees1_total + entrees2_total;
 
 var total_bill = total*1.2;   //tips
 var tips = total*.2;
