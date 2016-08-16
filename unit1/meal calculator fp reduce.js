@@ -1,3 +1,5 @@
+
+
 var diners=[
  {name:'adam', entree1:'ramen', price1:11.5, entree2: 'miso', price2 : 3},
 
@@ -6,7 +8,7 @@ var diners=[
 {name:'carly', entree1: 'teriyaki chicken', price1:12, entree2: 'miso', price2 : 3},
 ];
 
-var total = diners.reduce(function(cumulative, obj) {
+var total = diners.reduce(function(cumulative, obj) {    //reduce is perfect for doing sum total 
    return cumulative + obj.price1 + obj.price2;
 }, 0);
 
