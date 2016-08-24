@@ -1,0 +1,38 @@
+<html>
+   <head>
+   <script>
+
+       // Called on body's `onload` event
+       function init() {
+           // Retrieving the text input's value which was stored into localStorage
+           var mytext = localStorage.getItem("mytext");
+
+           // Writing the value in the document
+           document.getElementById("body").innerHTML=mytext+"!";
+           // <-- this will display message in a element with id "body"
+       }
+
+   </script>
+   <link href="stylesheet.css" rel="stylesheet" type="text/css">
+   </head>
+
+   <body onLoad="init();">
+   <div id="container">
+
+   <div id="header">
+
+   </div>
+   <div id="navigation">
+   </div>
+   <div id="body"> <!-- message will be shown here -->
+   </div>
+   <div id="rightcolumn">
+   </div>
+   <div id="footer">
+     Resonative Production
+</div>
+   </div>
+
+   </body>
+
+   </html>
