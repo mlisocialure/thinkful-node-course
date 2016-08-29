@@ -2,15 +2,16 @@ var express = require('express');
 
 var app = express();
 
-app.get('/https://thinkful-ml-mlisocialure.c9users.io/bottle/home.html',
-    function(request, response) {
-    response.send("welcome to Marquee!");
-});
+app.use(express.static('public'));
 
-app.get('/:firstname/:lastname', function(request, response) {
-    var first = request.params.firstname;
-    var last = request.params.lastname;
-    response.send(["Hello", first, last].join(" "));
-});
+var bodyParser = require('body-parser');
 
-app.listen(process.env.PORT, process.env.IP);
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(bodyParser.json());
+
+app.post("/userlogin", function(request, response) {
+    response.send( "Hello " + request.body.message );
+        });
+
+app.listen(process.env.PORT || 8080, process.env.IP);
