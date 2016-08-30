@@ -57,8 +57,8 @@ app.delete('/items/:id', function(request, response){
     });
      
 
-
-
+export.app=app;
+export.storage=storage;
 
 
 app.listen(process.env.PORT || 8080, process.env.IP);
