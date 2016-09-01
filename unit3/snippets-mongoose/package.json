@@ -1,0 +1,14 @@
+{
+  "name": "snippets-mongoose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "snipets.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^4.5.10"
+  }
+}
