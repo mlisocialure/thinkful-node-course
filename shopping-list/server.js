@@ -33,32 +33,7 @@ app.post('/items', jsonParser, function(request, response) {
     response.status(201).json(item);
 });
 
-app.delete('/items/:id', function(request, response){
-  if (!request.body) {
-     response.sendStatus(400);
-   } else {
-     var item = storage.remove(request.params.id);
-     if (item) {
-       response.status(200).json(item);
-     } else {
-       response.sendStatus(404);
-    }
-   }
-  });
-        
 
- app.put('/items/:id', jsonParser, function(request, response){
-   var item = storage.update(request.params.id, request.body);
-   if (item) {
-     response.status(200).json(item);
-   } else {
-     response.sendStatus(404);
-   }
-    });
-     
-
-export.app=app;
-export.storage=storage;
 
 
 app.listen(process.env.PORT || 8080, process.env.IP);
