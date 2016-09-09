@@ -5,7 +5,6 @@ var mongoose = require('mongoose');
 global.environment = 'test';
 var server = require('../server.js');
 var Item = require('../models/item');
-var seed = require('../db/seed');
 
 var should = chai.should();
 var app = server.app;
@@ -116,7 +115,6 @@ describe('Shopping List', function() {
             });
         });
     });
-});
+
 
 app.listen(process.env.PORT || 8080, process.env.IP);
-
