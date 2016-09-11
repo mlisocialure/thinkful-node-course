@@ -33,7 +33,26 @@ app.post('/items', jsonParser, function(request, response) {
     response.status(201).json(item);
 });
 
+app.put('/items/:id', jsonParser, function(req, res) {
+  if (!req.body) {
+    return res.sendStatus(400);
+  }
+  var item = storage.put(req.params.id, req.body.name);
+  res.status(201).json(item);
+});
 
 
+app.delete('/items/:id', function(req, res) {
+  var item = storage.remove(req.params.id);
+  if (item) {
+    res.status(201).json(item);
+  } else {
+    res.status(400).json({"error": "no item found"});
+  }
+});
 
-app.listen(process.env.PORT || 8080, process.env.IP);
+
+app.listen(process.env.PORT || 8080);
+
+exports.app = app;
+exports.storage = storage;
