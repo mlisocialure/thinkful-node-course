@@ -25,7 +25,7 @@ var getFromApi = function(endpoint, args) {
     });
     return emitter;
 };
-
+// pull a RelatedArtist and her top tracks from Spotify API
 var getRelatedArtists = function(res, artist){
     var relatedUrl = 'artists/' + artist.id + '/related-artists';
     var relatedReq = getFromApi(relatedUrl, {
@@ -50,7 +50,7 @@ var getTopTracks = function(res, artist, relatedArtists){
             res.end(JSON.stringify(artist));
         }
     };
-
+    // parallel async IO, searching top tracks foreach relatedArtist
     relatedArtists.forEach(function(relatedArtist){
         var tracksUrl = 'artists/' + relatedArtist.id + '/top-tracks';
         var tracksReq = getFromApi(tracksUrl, {
@@ -65,7 +65,6 @@ var getTopTracks = function(res, artist, relatedArtists){
 
         tracksReq.on('error', function(){
             console.log('No top tracks found for' + artist.name);
-            // Should we return any error here or simply not list tracks?
         });
     });
 };
