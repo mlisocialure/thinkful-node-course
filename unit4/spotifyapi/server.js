@@ -4,7 +4,7 @@ var events = require('events');
 var querystring = require('querystring');
 var static = require('node-static');
 
-//use EventEmitter to synchronously communicate all functions attached to this specific event
+//use EventEmitter to call all functions attached to this specific event synchronously
 var getFromApi = function(endpoint, args) {
     var emitter = new events.EventEmitter();
     var options = {
