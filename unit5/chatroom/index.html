@@ -1,0 +1,10 @@
+<!doctype html>
+<title>Chatroom</title>
+<meta charset="utf-8">
+
+<!-- JS -->
+<script src="//code.jquery.com/jquery-2.1.0.js"></script>
+<script src="main.js"></script> 
+
+<input type="text">
+<div id="messages"></div>
