@@ -1,23 +1,17 @@
-
 import praw
 import time
-import OAuth2Util
 
 
 from praw.helpers import comment_stream
 
 
-r = praw.Reddit("Useragent")
-o = OAuth2Util.OAuth2Util(r)
-
-o.refresh(force=True)
-
-while True:
-    print(r.get_me().comment_karma)
-    time.sleep(3600)
+r = praw.Reddit("Han Solo snappy response")
+r.login()
 
 target_text = "i love you"
-response_text = "[I know](https://youtu.be/sO-KR-14uXM)"	
+response_text = "[I know](https://youtu.be/sO-KR-14uXM)"
+
+
 
 processed = []
 while True:
@@ -26,8 +20,5 @@ while True:
             print('Han shot first! :@')
             c.reply(response_text)
             processed.append(c.id)   #then push the response 
-            time.sleep(2)
+            time.sleep(10)
     
-
-        
-
