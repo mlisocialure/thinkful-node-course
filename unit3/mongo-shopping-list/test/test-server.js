@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 global.environment = 'test';
 var server = require('../server.js');
 var Item = require('../models/item');
+var seed = require('../db/seed');
 
 var should = chai.should();
 var app = server.app;
@@ -13,21 +14,10 @@ chai.use(chaiHttp);
 
 describe('Shopping List', function() {
     before(function(done) {
-        server.runServer(function() {
-            Item.create({name: 'Broad beans'},
-                        {name: 'Tomatoes'},
-                        {name: 'Peppers'}, function() {
-                done();
-            });
-        });
-    });
-
-    after(function(done) {
-        Item.remove(function() {
+        seed.run(function() {
             done();
         });
     });
-});
 
     it('should list items on get', function(done) {
         chai.request(app)
@@ -105,7 +95,6 @@ describe('Shopping List', function() {
             });
     });
     
-    //TODO: it('should alert the user when an item was updated that did not exist already');
 
     after(function(done) {
         Item.resetCount(function(err, nextCount) {
@@ -115,6 +104,4 @@ describe('Shopping List', function() {
             });
         });
     });
-
-
-app.listen(process.env.PORT || 8080, process.env.IP);
+});

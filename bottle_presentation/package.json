@@ -7,9 +7,15 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0"
   },
-  "devDependencies": {},
+  "devDependencies": 
   "scripts": {
     {
     "express":"*",
     "body-parser":"*"
   }
+    
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

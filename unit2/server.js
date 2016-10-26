@@ -25,14 +25,14 @@ storage.add('Tomatoes');
 storage.add('Peppers');
 
 var app = express();
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('/public'));
 
 
-app.get('/', function(req, res) {
+app.get('/items', function(req, res) {
   res.json(storage.items);
 });
 
-app.post('/', jsonParser, function(req, res) {
+app.post('/items', jsonParser, function(req, res) {
   if (!req.body) {
     return res.sendStatus(400);    
   }
@@ -40,8 +40,8 @@ app.post('/', jsonParser, function(req, res) {
   res.status(201).json(item);
 });
 
-app.delete('/', function(req, res) {
-  var item = storage.remove(req.params.id);   //deleting an item along with its corresponding id
+app.delete('/items/<id>', function(req, res) {
+  var item = storage.delete(req.params.id);   //deleting an item along with its corresponding id
   if (item) {
     res.status(200).json(item);                   
   } else {
@@ -51,7 +51,7 @@ app.delete('/', function(req, res) {
 
 
 
-app.put('/', jsonParser, function(req, res) {  
+app.put('/items/<id>', jsonParser, function(req, res) {  
   if (!req.body) {
     return res.sendStatus(400);
   }

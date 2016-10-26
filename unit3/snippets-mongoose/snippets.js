@@ -1,17 +1,17 @@
-var moongoose=require('moongoose');
-moongoose.connect('mongodb://localhost/');
+var mongoose=require('mongoose');
+mongoose.connect('mongodb://localhost/');
 
-moongoose.connection.on('error', function(err)){
+mongoose.connection.on('error', function(err){
     console.error('could not connect. Error:', err);
 });
 
-moongoose.connection.once('open', function(){
-    var snippetschema=moongoose.schema([
-        name:{type:string, unique:true},
-        content:string
+mongoose.connection.once('open', function(){
+    var snippetschema=mongoose.schema([
+        name:{type:String, unique:true},
+        content:String
         ]);
         
-        var snippet=moongoose.model('snippet', snippetschema);
+        var snippet=mongoose.model('snippet', snippetschema);
 });
 
 var create= function(name,content){
